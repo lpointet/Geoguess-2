@@ -30,10 +30,12 @@ window.addEventListener('resize', () => {
 	updateSizes(Vue.prototype.$viewport)
 })
 
+var baseUrl = process.env.VUE_APP_FIREBASE_PROJECT_ID.split('-').slice(-2).join('-')
+
 var firebaseConfig = {
   apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
-  authDomain: process.env.VUE_APP_FIREBASE_PROJECT_ID + ".firebaseapp.com",
-  databaseURL: "https://" + process.env.VUE_APP_FIREBASE_PROJECT_ID + ".firebaseio.com",
+  authDomain: baseUrl + ".firebaseapp.com",
+  databaseURL: "https://" + baseUrl + ".firebaseio.com",
   projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
   storageBucket: process.env.VUE_APP_FIREBASE_PROJECT_ID + ".appspot.com",
   messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID,
